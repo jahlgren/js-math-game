@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Math Game</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    
+    <div class="page-wrapper">
+
+        <div class="card">
+            <div class="card__header">
+                <span>Addition</span>
+                <span 
+                    class="text --light"
+                    id="problem-index"
+                ></span>
+            </div>
+
+            <div class="card__content" id="playing-content">
+                <div class="display-label">
+                    <span 
+                        class="display-label__heading"
+                        id="expression"
+                    ></span>
+                </div>
+            </div>
+            <div class="card__content" id="end-content">
+                <div class="display-label">
+                    <span class="display-label__subheading" id="end-result"></span>
+                </div>
+            </div>
+
+            <div class="card__footer" id="playing-footer">
+                <div class="grid" id="button-container"></div>
+            </div>
+            <div class="card__footer" id="end-footer">
+                <a href="#" class="button --full-width" id="play-again-button">Play Again</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="src/math-game.js"></script>
+    <script src="src/main.js"></script>
+
+</body>
+</html>
