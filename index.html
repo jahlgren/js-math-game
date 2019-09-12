@@ -7,6 +7,7 @@
     <title>Math Game</title>
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/style.css">
+    <script src="src/chartjs/Chart.min.js"></script>
 </head>
 <body>
     
@@ -30,9 +31,7 @@
                 </div>
             </div>
             <div class="card__content" id="end-content">
-                <div class="display-label">
-                    <span class="display-label__subheading" id="end-result"></span>
-                </div>
+                <canvas id="chart-canvas"></canvas>
             </div>
 
             <div class="card__footer" id="playing-footer">

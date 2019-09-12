@@ -7,10 +7,25 @@ const playingFooterElement = document.getElementById('playing-footer');
 const endContentElement = document.getElementById('end-content');
 const endFooterElement = document.getElementById('end-footer');
 
-const endResultElement = document.getElementById('end-result');
+const canvasContext = document.getElementById('chart-canvas').getContext('2d');
 
 const playAgainButton = document.getElementById('play-again-button');
 playAgainButton.addEventListener('click', onPlayAgainClicked);
+
+const gameEndChart = new Chart(canvasContext, {
+    type: 'pie',
+    data: {
+        labels: ['Correct', 'Incorrect'],
+        datasets: [{
+            data: [],
+            backgroundColor: [
+                'rgb(125, 200, 255)',
+                'rgb(255, 75, 128)'
+            ]
+        }]
+    },
+    options: {}
+});
 
 const game = new MathGame();
 game.addEventListener('gamestart', onGameStart);
@@ -39,7 +54,11 @@ function onGameEnd(game) {
     endContentElement.style.display = '';
     endFooterElement.style.display = '';
 
-    endResultElement.innerHTML = `You got ${game.correctAnswerCount} out of ${game.problemCount}!`;
+    gameEndChart.data.datasets[0].data = [
+        game.correctAnswerCount,
+        game.problemCount - game.correctAnswerCount
+    ];
+    gameEndChart.update();
 }
 
 function onRoundStart(game) {
